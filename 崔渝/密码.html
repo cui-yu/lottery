@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src = "jquery.js"></script>
+		<style>
+			*{margin:0;padding:0;}
+			li{list-style:none}
+			.box{width:300px;height:600px;background:darkgray;margin:50px auto;}
+			.up{width:300px;height:300px;}
+			.area{width:150px;height:150px;margin:0 auto;position:relative;}
+			.open{position:absolute;top:10px;left:40px;}
+			.close{position:absolute;top:40px;left:40px;}
+			.clear{position:absolute;top:70px;left:40px;}
+			.down{width:300px;height:300px;background:royalblue;position:relative;display:none;}
+			.password{width:300px;height:100px;margin-top:10px;}
+			.password>p{display:block;width:200px;height:40px;margin-left:50px;text-align:center;line-height:40px;}
+			.password>p>span{color:red;}
+			.password>h{text-align:center;line-height:20px;width:20px;height:20px;border-radius:50%;display:block;position:absolute;right:0px;top:0px;}
+			.one{width:240px;height:50px;margin-left:30px;margin-top:5px;}
+			.one>li{width:30px;height:30px;background:white;float:left;margin:10px 5px;}
+			.key{width:300px;height:200px;}
+			.two{width:300px;height:200px;}
+			.two>li{width:94px;height:44px;background:white;float:left;margin:3px 3px;text-align:center;line-height:44px;}
+			.two>.qing{background:gray;}
+			.two>.del{background:gray;}
+		</style>
+	</head>
+	<body>
+		<div class = "box">
+			<div class = "up">
+				<div class = "area">
+					<button class= "open">打开弹窗</button>
+					<button class= "close">关闭弹窗</button>
+					<button class= "clear">清空密码</button>
+				</div>
+			</div>
+			<div class = "down">
+				<div class = "password">
+					<p>您将支<span>30</span>元，请输入密码</p>
+					<h>x</h>
+					
+					<ul class = "one">
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</div>
+				<div class = "key">
+					<ul class = "two">
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+						<li>6</li>
+						<li>7</li>
+						<li>8</li>
+						<li>9</li>
+						<li class = "qing"><</li>
+						<li>0</li>
+						<li class = "del">x</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script>
+			$(function(){
+				$('.open').on('click',function(){
+					$('.down').css({'display':'block'})
+				})
+				$('.close').on('click',function(){
+					$('.down').css({'display':'none'})
+				})
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src = "jquery.js"></script>
+		<style>
+			.box{width:700px;height:200px;background:darkgray;margin:50px auto;}
+			.up{width:200px;height:50px;margin-left:20px;}
+			.up>p{display:block;width:50px;height:20px;font-size:12px;font-weight:bold;}
+			.up>h{display:block;width:200px;height:20px;}
+			.mid{width:800px;height:80px;position:relative;}
+			.mid>.skill{float:left;margin:0 5px;width:auto;height:40px;background:white;line-height:40px;text-align:center;position:absolute;top:20px;left:20px;}
+			.skill>p{display:block;width:auto;height:40px;background:white;margin-top:0px;float:left;}
+			.skill>span{display:block;width:15px;height:15px;background:lightgray;float:left;margin-top:12px;margin-left:10px;border-radius:50%;line-height:12px;text-align:center;}
+			.down{width:400px;height:60px;margin-top:8px;}
+			.kuang{width:200px;height:20px;margin-top:17px;margin-left:17px;float:left;}
+			.dian{width:40px;height:30px;float:left;margin-left:20px;margin-top:15px;border-color:skyblue;font-size:12px;}	
+		</style>
+	</head>
+	<body>
+		<div class = "box">
+			<div class = "up">
+				<p>你的技能</p>
+				<h>把你的10个技能加上去</h>
+			</div>
+			<div class = "mid">
+		<div class = "skill"><p>html</p><span class = "ss">x</span></div>	
+			</div>
+			<div class = "down">
+				<input type="text" class = "kuang">
+				<button class = "dian">添加</button>
+			</div>
+		</div>
+		<script>
+			
+				$('.dian').on('click',function(){
+					var mid = document.getElementsByClassName('mid');
+					function create(tagName){
+					return document.createElement(tagName);
+					}
+					var ccc = $('.kuang').val();
+					console.log(ccc)
+					if(ccc==''){
+						alert('内容不能为空')
+						return;
+					}
+					var html= `<p>${ccc}</p><span>x</span>`
+					$('.skill').append(html);
+				$('.kuang').val("")
+				
+				$('.skill>span').on('click',function(){
+					console.log(1)
+					// 删除skill标签
+					// $(this).parent().remove(); 
+				})
+				document.onkeydown = function(e){
+				      var ev = document.all ? window.event : e;
+				      if(ev.keyCode==13) {
+				          var txt=$(".kuang").val()
+						  console.log(txt)
+				          if(txt==""){
+				          	alert("请输入内容")
+				          	return;
+				          }
+				          console.log(txt)
+				    var skill=$('<div class="skill"><p>'+ txt +'</p><span>x</span></div>')
+				          console.log(skill)
+				          // p.html(txt)明确看清楚没有必要
+				          $('.mid').append(skill);
+				          $('.kuang').val("")
+				      }
+				    }
+				})	
+				
+		</script>
+	</body>
+</html>
